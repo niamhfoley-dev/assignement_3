@@ -24,14 +24,14 @@
     <div class="menu-items">
         {% for item in menu_items %}
         <div class="menu-item" data-category="{{ item.category }}">
-            <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+            <img src="{{ url_for('static', filename='images/menu-items/' + item.image) }}" alt="{{ item.name }}">
             <h3>{{ item.name }} - {{ item.price }}</h3>
             <p>{{ item.description }}</p>
             <button class="details-btn"
                     data-name="{{ item.name }}"
                     data-price="{{ item.price }}"
                     data-description="{{ item.description }}"
-                    data-image="{{ url_for('static', filename='images/' + item.image) }}">
+                    data-image="{{ url_for('static', filename='images/menu-items/' + item.image) }}">
                 View Details
             </button>
         </div>

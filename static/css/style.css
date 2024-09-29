@@ -79,7 +79,7 @@ nav {
     background-size: cover;
     background-position: center;
     height: 100vh;
-    color: #F5F5F5; /* White Smoke */
+    color: black; /* White Smoke */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -315,7 +315,7 @@ footer {
 
 .menu-item {
     width: 300px;
-    min-height: 150px;
+    min-height: 350px;
     border: 1px solid #D2B48C;
     border-radius: 10px;
     padding: 1em;
