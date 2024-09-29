@@ -1,0 +1,56 @@
+<!-- templates/menu.html -->
+{% extends "base.html" %}
+
+{% block title %}Menu - Mug & Mingle{% endblock %}
+
+{% block content %}
+<section class="menu">
+    <h2>Our Menu</h2>
+
+    <!-- Category Tabs -->
+    <div class="menu-categories">
+        <button class="category-btn active" data-category="All">All</button>
+        {% for category in categories %}
+            <button class="category-btn" data-category="{{ category }}">{{ category }}</button>
+        {% endfor %}
+    </div>
+
+    <!-- Search Bar -->
+    <div class="menu-search">
+        <input type="text" id="searchInput" placeholder="Search menu items...">
+    </div>
+
+    <!-- Menu Items -->
+    <div class="menu-items">
+        {% for item in menu_items %}
+        <div class="menu-item" data-category="{{ item.category }}">
+            <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+            <h3>{{ item.name }} - {{ item.price }}</h3>
+            <p>{{ item.description }}</p>
+            <button class="details-btn"
+                    data-name="{{ item.name }}"
+                    data-price="{{ item.price }}"
+                    data-description="{{ item.description }}"
+                    data-image="{{ url_for('static', filename='images/' + item.image) }}">
+                View Details
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Modal for Item Details -->
+<div id="itemModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <h3 id="modalName"></h3>
+        <p id="modalPrice"></p>
+        <p id="modalDescription"></p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+{% endblock %}

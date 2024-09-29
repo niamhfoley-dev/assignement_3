@@ -1,0 +1,56 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mug & Mingle{% endblock %}</title>
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/coffee-cup.png') }}" sizes="any">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/coffee-cup.png') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+<!-- Header and Navigation -->
+<header>
+    <nav>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">Mug & Mingle</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('menu') }}">Menu</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <div class="flash-message">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+<!-- Main Content Area -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; {{ current_year }} Mug & Mingle. All rights reserved.</p>
+</footer>
+<button id="scrollToTopBtn">↑</button>
+
+<!-- Include JavaScript files -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

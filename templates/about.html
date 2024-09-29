@@ -1,0 +1,117 @@
+<!-- templates/about.html -->
+{% extends "base.html" %}
+
+{% block title %}About Us - Mug & Mingle{% endblock %}
+
+{% block content %}
+    <section class="our-story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="story-content">
+                <div class="story-image">
+                    <img src="{{ url_for('static', filename='images/our_story.webp') }}" alt="Our Story">
+                </div>
+                <div class="story-text">
+                    <p>Established in 2010, Mug & Mingle started as a small neighborhood café with a big dream: to
+                        create a space where people could connect over exceptional coffee and delightful
+                        conversations.</p>
+                    <p>Our passion for quality brews and community spirit has driven us to become a beloved spot for
+                        locals and visitors alike.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>To provide a welcoming environment that fosters connection and joy through exceptional coffee
+                experiences.</p>
+        </div>
+    </section>
+
+    <section class="our-team">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='images/team/alex.webp') }}" alt="Alex">
+                    <h3>Alex Johnson</h3>
+                    <p>Founder & Master Barista</p>
+                </div>
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='images/team/sophia.webp') }}" alt="Sophia">
+                    <h3>Sophia Lee</h3>
+                    <p>Head of Operations</p>
+                </div>
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='images/team/michael.webp') }}" alt="Michael">
+                    <h3>Michael Smith</h3>
+                    <p>Community Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2>Our Values</h2>
+            <div class="values-content">
+                <div class="value-item">
+                    <i class="fas fa-mug-hot"></i>
+                    <h3>Quality</h3>
+                    <p>We are committed to serving the finest coffee and pastries, sourced ethically and prepared with
+                        care.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Community</h3>
+                    <p>We believe in building strong relationships and giving back to our community.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We strive to minimize our environmental impact through sustainable practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item active">
+                    <p class="quote">"Mug & Mingle is my favorite spot in town. The coffee is exceptional, and the
+                        atmosphere is so welcoming!"</p>
+                    <p class="customer">- Emily R.</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="quote">"I love attending the events here. It's a great place to meet new people and enjoy
+                        great coffee."</p>
+                    <p class="customer">- Jason K.</p>
+                </div>
+                <div class="testimonial-item">
+                    <p class="quote">"The baristas are so friendly and knowledgeable. They always recommend the best
+                        drinks!"</p>
+                    <p class="customer">- Sarah L.</p>
+                </div>
+                <!-- Add more testimonial items as needed -->
+            </div>
+            <!-- Carousel Navigation -->
+            <div class="carousel-nav">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_head %}
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+{% endblock %}

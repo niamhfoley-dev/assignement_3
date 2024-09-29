@@ -1,0 +1,89 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Home - Mug & Mingle{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Mug & Mingle</h1>
+            <p>Your cozy corner for the finest coffee and delightful company.</p>
+            <a href="{{ url_for('menu') }}" class="btn">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- Why Visit Us Section -->
+    <section class="why-visit">
+        <h2>Why Visit Mug & Mingle?</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/cozy_ambiance.webp') }}" alt="Cozy Ambiance">
+                <h3>Cozy Ambiance</h3>
+                <p>Relax in our warm and inviting atmosphere, perfect for unwinding or catching up with friends.</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/artisan_coffee.webp') }}" alt="Artisan Coffee">
+                <h3>Artisan Coffee</h3>
+                <p>Enjoy our selection of premium, ethically sourced coffee prepared by skilled baristas.</p>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/community_events.webp') }}" alt="Community Events">
+                <h3>Community Events</h3>
+                <p>Join us for live music, workshops, and events that bring the community together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Drinks Section -->
+    <section class="featured-drinks">
+        <h2>Featured Drinks</h2>
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/drink1.webp') }}" alt="Caramel Latte">
+                    <h3>Caramel Latte</h3>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/drink2.webp') }}" alt="Mocha Delight">
+                    <h3>Mocha Delight</h3>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/drink3.webp') }}" alt="Espresso Shot">
+                    <h3>Espresso Shot</h3>
+                </div>
+            </div>
+            <!-- Carousel Navigation -->
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="upcoming-events">
+        <h2>Upcoming Events</h2>
+        <div class="event">
+            <h3>Live Jazz Night</h3>
+            <p>Date: November 20, 2023</p>
+            <a href="{{ url_for('events') }}" class="btn">Learn More</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+    <script>
+        // Smooth Scroll for Navigation Links
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+{% endblock %}
+

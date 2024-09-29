@@ -1,0 +1,60 @@
+<!-- templates/events.html -->
+{% extends "base.html" %}
+
+{% block title %}Events - Mug & Mingle{% endblock %}
+
+{% block content %}
+<section class="events">
+    <h2>Upcoming Events</h2>
+
+    <!-- Search Bar -->
+    <div class="event-search">
+        <input type="text" id="searchInput" placeholder="Search events...">
+    </div>
+
+    <!-- Category Filters -->
+    <div class="event-filters">
+        <button class="filter-btn active" data-category="All">All</button>
+        {% set categories = events | map(attribute='category') | unique | list | sort %}
+        {% for category in categories %}
+            <button class="filter-btn" data-category="{{ category }}">{{ category }}</button>
+        {% endfor %}
+    </div>
+
+    <!-- Event List -->
+    <div class="event-list">
+        {% for event in events %}
+        <div class="event-card" data-category="{{ event.category }}" data-date="{{ event.date }}">
+            <div class="event-details">
+                <h3>{{ event.title }}</h3>
+                <p><strong>Date:</strong> {{ event.date }} at {{ event.time }}</p>
+                <p><strong>Category:</strong> {{ event.category }}</p>
+                <p>{{ event.description }}</p>
+                <button class="book-btn" data-title="{{ event.title }}">Book Now</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modalEventTitle"></h3>
+        <form id="bookingForm" method="POST" action="{{ url_for('book_event') }}">
+            <input type="hidden" id="eventTitleInput" name="event_title">
+            <label for="bookingName">Name:</label>
+            <input type="text" id="bookingName" name="name" required>
+            <label for="bookingEmail">Email:</label>
+            <input type="email" id="bookingEmail" name="email" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/events.js') }}"></script>
+{% endblock %}
