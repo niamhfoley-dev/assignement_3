@@ -277,8 +277,8 @@ footer {
 }
 
 .category-btn {
-    background-color: #FFC107; /* Golden Honey */
-    color: #2F4F4F; /* Dark Slate Gray */
+    background-color: #D2B48C; /* Warm Terracotta */
+    color: #2F4F4F;
     padding: 0.5em 1em;
     margin: 0.2em;
     border: none;
@@ -469,6 +469,7 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
 }
 
 .filter-btn.active {
