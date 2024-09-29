@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Live Jazz Night",
+        "date": "2023-11-20",
+        "time": "7:00 PM",
+        "category": "Music",
+        "description": "Enjoy a night of smooth jazz performed by local artists."
+    },
+    {
+        "title": "Coffee Brewing Workshop",
+        "date": "2023-12-05",
+        "time": "2:00 PM",
+        "category": "Workshop",
+        "description": "Learn the art of coffee brewing with our expert baristas."
+    },
+    {
+        "title": "Poetry Reading",
+        "date": "2023-11-28",
+        "time": "6:00 PM",
+        "category": "Literature",
+        "description": "An evening of poetry readings from local poets."
+    },
+    {
+        "title": "Holiday Cookie Decorating",
+        "date": "2023-12-15",
+        "time": "4:00 PM",
+        "category": "Family",
+        "description": "Bring the family for some festive cookie decorating fun."
+    }
+]
